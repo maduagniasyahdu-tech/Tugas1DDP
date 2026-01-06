@@ -1,0 +1,117 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .about-header {
+        font-family: 'Syne';
+        font-weight: 800;
+        background: linear-gradient(45deg, #4a148c, #ff85a2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 2rem;
+    }
+
+    .info-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        height: 100%;
+        border-left: 5px solid #ff85a2;
+    }
+
+    .info-card:hover {
+        transform: translateX(10px);
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .category-title {
+        font-family: 'Syne';
+        font-weight: 700;
+        color: #4a148c;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid rgba(74, 20, 140, 0.1);
+        padding-bottom: 10px;
+    }
+
+    .year-tag {
+        font-size: 0.8rem;
+        background: #ff85a2;
+        color: white;
+        padding: 2px 12px;
+        border-radius: 50px;
+        font-weight: 600;
+    }
+
+    .org-card {
+        border-left: 5px solid #4a148c;
+    }
+
+    /* Animasi muncul dari bawah */
+    .fade-in-up {
+        animation: fadeInUp 0.8s ease backwards;
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="container mb-5">
+    <h1 class="about-header text-center fade-in-up">Curriculum Vitae</h1>
+
+    <div class="row g-5">
+        <div class="col-lg-6 fade-in-up" style="animation-delay: 0.2s;">
+            <h3 class="category-title"><i class="fas fa-graduation-cap"></i> Education Journey</h3>
+            
+            <div class="d-flex flex-column gap-3">
+                <div class="info-card">
+                    <span class="year-tag">2022 - 2025</span>
+                    <h5 class="mt-2 mb-1">SMAN 13 Depok</h5>
+                    <p class="text-muted mb-0">Sekolah Menengah Atas Negeri</p>
+                </div>
+
+                <div class="info-card">
+                    <span class="year-tag">2019 - 2022</span>
+                    <h5 class="mt-2 mb-1">MTS Al-Husna</h5>
+                    <p class="text-muted mb-0">Madrasah Tsanawiyah</p>
+                </div>
+
+                <div class="info-card">
+                    <span class="year-tag">2013 - 2019</span>
+                    <h5 class="mt-2 mb-1">SDN Tugu 6</h5>
+                    <p class="text-muted mb-0">Sekolah Dasar Negeri</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 fade-in-up" style="animation-delay: 0.4s;">
+            <h3 class="category-title"><i class="fas fa-users"></i> Organization Experience</h3>
+            
+            <div class="d-flex flex-column gap-3">
+                <div class="info-card org-card">
+                    <span class="year-tag" style="background: #4a148c;">2023 - 2024</span>
+                    <h5 class="mt-2 mb-1">Majelis Permusyawaratan Kelas</h5>
+                    <p class="text-muted mb-0"><strong>Ketua Komisi Pengawasan</strong></p>
+                    <small>Bertanggung jawab dalam mengawasi kinerja OSIS dan aspirasi siswa.</small>
+                </div>
+
+                <div class="info-card org-card">
+                    <span class="year-tag" style="background: #4a148c;">2023 - Sekarang</span>
+                    <h5 class="mt-2 mb-1">Purna Paskibra Indonesia</h5>
+                    <p class="text-muted mb-0"><strong>Anggota Aktif</strong></p>
+                    <small>Berkontribusi dalam kegiatan kepemudaan dan upacara kenegaraan.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

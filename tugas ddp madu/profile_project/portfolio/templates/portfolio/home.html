@@ -1,0 +1,131 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* Animasi Floating untuk Card */
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+    }
+
+    /* Animasi Gradient Text */
+    @keyframes gradientText {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .hero-section {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .glass-card-premium {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 40px;
+        padding: 4rem 2rem;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        animation: float 6s ease-in-out infinite;
+        max-width: 900px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Dekorasi Cahaya di Belakang Card */
+    .glow-circle {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255, 133, 162, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+        border-radius: 50%;
+        z-index: 0;
+        filter: blur(40px);
+    }
+
+    .name-highlight {
+        background: linear-gradient(-45deg, #ff85a2, #4a148c, #ffac81, #ff85a2);
+        background-size: 300% 300%;
+        animation: gradientText 5s ease infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+    }
+
+    .skill-badge {
+        display: inline-block;
+        padding: 5px 20px;
+        margin: 5px;
+        border-radius: 50px;
+        background: rgba(255, 133, 162, 0.1);
+        border: 1px solid rgba(255, 133, 162, 0.3);
+        font-size: 0.9rem;
+        color: #4a148c;
+        transition: 0.3s;
+    }
+
+    .skill-badge:hover {
+        background: #ff85a2;
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    .btn-futuristic-premium {
+        background: linear-gradient(45deg, #ff85a2, #4a148c);
+        color: white;
+        padding: 15px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 1px;
+        box-shadow: 0 10px 20px rgba(255, 133, 162, 0.3);
+        transition: 0.4s;
+        display: inline-block;
+    }
+
+    .btn-futuristic-premium:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 30px rgba(255, 133, 162, 0.5);
+        color: white;
+    }
+</style>
+
+<div class="hero-section">
+    <div class="glow-circle" style="top: -50px; left: -50px;"></div>
+    <div class="glow-circle" style="bottom: -50px; right: -100px; background: radial-gradient(circle, rgba(74, 20, 140, 0.2) 0%, rgba(255, 255, 255, 0) 70%);"></div>
+
+    <div class="container text-center">
+        <div class="glass-card-premium mx-auto">
+            <h1 style="font-family: 'Syne'; font-size: 3.8rem; line-height: 1.2;">
+                Hello, I'm <br>
+                <span class="name-highlight">Madu Agnia Syahdu</span>
+            </h1>
+            
+            <p class="lead mt-4" style="font-size: 1.4rem; color: #4a148c; font-weight: 400;">
+                Mahasiswa Teknik Informatika @ STT Nurul Fikri
+            </p>
+
+            <div class="my-4">
+                <span class="skill-badge"><i class="fas fa-code"></i> IT Student</span>
+                <span class="skill-badge"><i class="fas fa-running"></i> Runner</span>
+                <span class="skill-badge"><i class="fas fa-microphone-alt"></i> Public Speaker</span>
+            </div>
+
+            <p class="mb-5 text-muted">
+                Menggabungkan logika pemrograman dengan kemampuan komunikasi untuk menciptakan solusi digital yang berdampak.
+            </p>
+
+            <div class="mt-2">
+                <a href="{% url 'about' %}" class="btn btn-futuristic-premium">EXPLORE MY JOURNEY</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
